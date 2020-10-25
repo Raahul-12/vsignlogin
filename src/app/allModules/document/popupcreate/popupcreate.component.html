@@ -1,0 +1,31 @@
+<!-- <form [formGroup]="form">
+    <div fxLayout="row" style="margin-top: 14%;">
+        <p style="font-style: italic;font-size: 15px;font-weight: bold;margin-left: 30%;"> Name :</p>
+        <mat-form-field style="margin-left: 3%;">
+            <input matInput placeholder="Enter the Name" formControlName="name">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row">
+        <p style="font-style: italic;font-size: 15px;font-weight: bold;margin-left: 31%;"> Role :</p>
+        <mat-form-field style="margin-left: 3%;">
+            <input matInput placeholder="Role" formControlName="role">
+        </mat-form-field>
+    </div>
+</form>
+<button mat-raised-button color="primary" style="margin-left: 32%;" (click)="onSubmit()">Submit</button> -->
+<h2 mat-dialog-title>Add User</h2>
+<div [formGroup]="form" fxLayout="column">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="role">
+    </mat-form-field>
+
+</div>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

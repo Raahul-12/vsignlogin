@@ -1,0 +1,214 @@
+<div class="formmargin" style="background-color: white; width: 100%;" id="container">
+    <div id="fab" class="fabbox">
+        <img src="../../assets/image/vsign/add.png" (click)="addbutton()" style="width:16px;cursor: pointer;">
+    </div>
+    <div class="header">
+        <p style="font-weight: bold;font-size: 18px;" class="border">Document list </p>
+
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="box1">
+
+        <div class="box2 " fxLayout="column" fxLayoutAlign="start start">
+            <div fxLayout="column" fxLayoutAlign="space-between end" class="tit1">
+                <span>Document Signed</span>
+                <div class="underline1"></div>
+            </div>
+            <div class="chart-container1">
+                <canvas id="canvas1"></canvas>
+            </div>
+            <div class="eclipse">
+                <div fxLayout="column" fxLayoutAlign="center center"><span style="font-size: 21px;font-weight: 500;color: #485865;">{{effi_percentage | number: '1.0-0'}}%</span><span style="font-size: 9px;color: #ee4057;font-weight: 500;">Efficiency</span></div>
+            </div>
+        </div>
+
+        <div class="box2" fxLayout="column" fxLayoutAlign="start start">
+            <div fxLayout="column" fxLayoutAlign="space-between end" class="tit1">
+                <span>Signing Process</span>
+                <div class="underline2"></div>
+            </div>
+            <div class="chart-container1">
+                <canvas id="canvas2"></canvas>
+            </div>
+            <div class="eclipse"><span style="font-size: 21px;font-weight: 500;color: #485865;">{{signing_process | number: '1.0-0'}}%</span></div>
+        </div>
+
+        <div class="box3" fxLayout="column" fxLayoutAlign="start start">
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <div fxLayout="column" fxLayoutAlign="space-between end" class="tit1">
+                    <span>Sign Process</span>
+                    <div class="underline3"></div>
+                </div>
+            </div>
+
+            <!-- <div fxLayout="column" fxLayoutAlign="start start">
+                
+                <div fxLayout="row" fxLayoutAlign="start center" style="margin-top:1rem;">
+                    <div class="circle_orange"></div>
+                    <span class="pielegendtxt">Draft</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" style="margin-top:0.6rem;">
+                    <div class="circle_blue"></div>
+                    <span class="pielegendtxt">Released</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" style="margin-top:0.6rem;">
+                    <div class="circle_black"></div>
+                    <span class="pielegendtxt">Signing</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" style="margin-top:0.6rem;">
+                    <div class="circle_green"></div>
+                    <span class="pielegendtxt">Completed</span>
+                </div>
+            </div> -->
+            <div class="chart-container" fxLayout="column">
+                <canvas id="canvas"></canvas>
+                <label class="pieheading">Signing Process Stat</label>
+            </div>
+        </div>
+
+        <div class="box4" fxLayout="column" fxLayoutAlign="start start" id="container1">
+            <div fxLayout="column" fxLayoutAlign="space-between end" class="tit1">
+                <span>Active Tags</span>
+                <div class="underline4"></div>
+            </div>
+            <div id="fab1" class="fabbox1">
+                <img src="../../assets/image/vsign/add.svg" style="width:10px;">
+            </div>
+
+            <div class="tagbox" fxLayout="row wrap" fxLayoutAlign="center start">
+                <!-- <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">Employee Letter</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div>
+                <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">Contacts</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div>
+                <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">Invoices</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div>
+                <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">HR Documents</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div>
+                <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">Vendor Contracts</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div>
+                <div class="tags" fxLayout="row" fxLayoutAlign="start center">
+                    <span class="tagtxt">Finance Documents</span>
+                    <img src="../../assets/image/vsign/cross.png"
+                        style="width:14px;margin-left: 0.5rem;margin-right: 0.5rem;">
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top:1.5rem;">
+        <div fxLaout="row" fxLayoutAlign="start center" class="searchbar">
+            <img src="../../assets/image/vsign/search-magnifier-interface-symbol.png" style="width:18px;margin-left: 1rem;margin-right: 1rem;">
+            <input placeholder="Search" class="inputfield" (keyup)="applyfilter($event.target.value)">
+        </div>
+        <!-- (keyup)="applyfilter($event.target.value)" -->
+        <div fxLaout="row" fxLayoutAlign="space-between center" class="mainselect">
+            <mat-select [(value)]="selected2" style="font-size: small;padding-left: 12px;padding-right: 5px;font-weight: 500;">
+                <mat-option value="option3">All</mat-option>
+                <mat-option value="option1">Draft</mat-option>
+                <mat-option value="option2">Released</mat-option>
+                <mat-option value="option2">Signing</mat-option>
+                <mat-option value="option2">Completed</mat-option>
+            </mat-select>
+        </div>
+    </div>
+
+    <!-- (keyup)="applyfilter($event.target.value)" -->
+
+    <table mat-table [dataSource]="employeesDataSource" id="tableborder" matSort class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="title">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="author">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header> author </th>
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header> date </th>
+            <td mat-cell *matCellDef="let element"> {{element.date | date:"MM/dd/yy"}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fulfilment">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <p style="margin-left: 90px;">fulfilment </p>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div [ngSwitch]="element.title">
+
+                    <div>
+                        <div class="pgr">
+                            <ul class="progressbar">
+                                <li class="active" style="color: #c9c6c6;">Released</li>
+                                <li class="ASN1">In Signing</li>
+                                <li style="color: #c9c6c6;">Completed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- {{element.fulfilment}} -->
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="signed">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header> signed </th>
+            <td mat-cell *matCellDef="let element"> {{element.signed}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="completeby">
+            <th style="background-color: black;color: white;" mat-header-cell *matHeaderCellDef mat-sort-header> completeby </th>
+            <td mat-cell *matCellDef="let element"> {{element.completeby | date:"MM/dd/yy"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th style="background-color: black; color: white;" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <p style="margin-left: 10px;">action</p>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="mainselect1">
+                    <mat-select [(value)]="selected1" style="font-size: small;padding-left: 12px;padding-right: 5px;font-weight: 500;">
+                        <mat-option value="option3">Sign</mat-option>
+                        <mat-option value="option1">Send Remainder</mat-option>
+                        <mat-option value="option2">Foreclose</mat-option>
+                    </mat-select>
+                </div>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="employeesDisplayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: employeesDisplayColumns;"></tr>
+    </table>
+
+
+
+
+</div>
+<!-- <mat-paginator 
+                 [pageSize]="5"
+                 [pageSizeOptions]="[10,50,100]">
+  </mat-paginator> -->
